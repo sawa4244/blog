@@ -6,11 +6,16 @@ from django.utils import timezone
 class myblog(models.Model):
     class Meta():
         db_table = "myblog"
-    myblog_title = models.CharField(max_length = 200)
-    myblog_text = models.TextField()
-    myblog_date = models.DateTimeField()
-    myblog_likes = models.IntegerField()
+    article_title = models.CharField(max_length = 200)
+    article_text = models.TextField()
+    article_date = models.DateTimeField()
+    article_likes = models.IntegerField(default=0)
 
+class comments(models.Model):
+    class Meta():
+        db_table = 'comment'
+    comments_text = models.TextField()
+    comments_myblog = models.ForeignKey(myblog, on_delete=models.CASCADE)
 
 class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
@@ -24,4 +29,4 @@ class Post(models.Model):
         self.save()
 
     def __str__(self):
-        return self.title    
+        return self.title

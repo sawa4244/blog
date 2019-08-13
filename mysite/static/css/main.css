@@ -1,0 +1,19 @@
+*{
+margin: 0;
+padding: 0;
+}
+
+h1 {
+color:white;
+font-family: 'Lobster';
+padding-left: 15px;
+text-align: center;
+padding-top: 35px;
+font-size: 72px;
+}
+
+
+.header{
+height: 161.5px;
+background: #E1B739;
+}
